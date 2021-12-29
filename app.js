@@ -1,30 +1,22 @@
-const { readFile, writeFile } = require("fs");
-readFile("./content/first.txt", "utf-8", (err, result) => {
-  if (err) {
-    console.log(err);
-    return;
-  }
-  const first = result;
-  readFile("./content/second.txt", "utf-8", (err, result) => {
-    if (err) {
-      console.log(err);
-      return;
-    }
-    const second = result;
-    writeFile(
-      "./content/result-async.txt",
-      `Here is the result : ${first}, ${second}`,
-      { flag: "a" },
-      (err, result) => {
-        if (err) {
-          console.log(err);
-          return;
-        }
-        console.log(result);
-      }
-    );
-  });
-});
+// npm - global command, comes with node
+// npm --version
+
+// local dependency - use it only in this particular project
+// npm i <packageName>
+
+// globa;  dependency - use it in any project
+// npm install -g <packageName>
+// sudo install -g <packageName> (mac)
+
+// package.json - manifest file (stores important info about project/package)
+// manual approach (create package.json in the root , create properties, etc.)
+// npm init (step by step, [press eneter to skip)
+// npm init -y (everythoing default)
+
+const _ = require("lodash");
+const items = [1, [2, [3, [4]]]];
+const newItems = _.flattenDeep(items);
+console.log(newItems);
 
 // https://www.youtube.com/watch?v=TNV0_7QRDwY&list=PLnHJACx3NwAdT_8forzXYvx0o4A2VnoHX&index=8
-// 01:27:32
+// 02:02:52
